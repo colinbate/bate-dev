@@ -1,12 +1,7 @@
 <style>
-	h1, p {
-		text-align: center;
-		margin: 0 auto;
-	}
 
 	h1 {
 		font-size: 2.8em;
-		text-transform: uppercase;
 		font-weight: 700;
 		margin: 0 0 0.5em 0;
 	}
@@ -28,4 +23,4 @@
 
 <h1>bate.dev</h1>
 
-<p><strong>Go to <a href="/blog">/blog</a> to see content loaded from <a href="https://www.sanity.io">Sanity</a></strong></p>
+<p>A simple home to keep track of things I've learned, as well as pointers to the various projects I'm working on.</p>

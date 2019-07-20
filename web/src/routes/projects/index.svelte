@@ -1,17 +1,17 @@
 <script context="module">
   import client from '../../sanityClient'
 	export async function preload({ params, query }) {
-    const res = await this.fetch(`/blog/index_content`);
-    const posts = await res.json();
-    return posts;
+    const res = await this.fetch(`/projects/index_content`);
+    const projects = await res.json();
+    return projects;
 	}
 </script>
 
 <script>
-  export let posts;
+  export let projects;
 
   function formatDate(date) {
-    return new Date(date).toLocaleDateString()
+    return (new Date(date)).getUTCFullYear();
   }
 </script>
 
@@ -23,17 +23,17 @@
 </style>
 
 <svelte:head>
-	<title>Blog</title>
+	<title>Projects</title>
 </svelte:head>
 
-<h1>Recent posts</h1>
+<h1>Projects</h1>
 
 <ul>
-	{#each posts as post}
+	{#each projects as project}
 		<!-- we're using the non-standard `rel=prefetch` attribute to
 				tell Sapper to load the data for the page as soon as
 				the user hovers over the link or taps it, instead of
 				waiting for the 'click' event -->
-		<li><a rel='prefetch' href='blog/{post.slug.current}'>{post.title}</a> ({formatDate(post.publishedAt)})</li>
+		<li><a rel='prefetch' href='projects/{project.slug.current}'>{project.title}</a> ({formatDate(project.publishedAt)})</li>
 	{/each}
 </ul>

@@ -3,7 +3,7 @@
 		// the `slug` parameter is available because
     // this file is called [slug].html
     const { slug } = params
-    const res = await this.fetch(`/blog/${slug}_content`);
+    const res = await this.fetch(`/learned/${slug}_content`);
     const post = await res.json();
     return post;
 	}

@@ -49,6 +49,12 @@ export default {
       }
     },
     {
+      name: 'color',
+      type: 'string',
+      title: 'Theme Color',
+      description: 'A highlight/primary color for the project.'
+    },
+    {
       name: 'publishedAt',
       type: 'datetime',
       title: 'Published at',
