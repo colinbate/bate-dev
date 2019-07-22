@@ -1,6 +1,4 @@
-import blocksToHtml from '@sanity/block-content-to-html'
-import client from '../../sanityClient'
-import serializers from '../../components/serializers'
+import client from '../../contentClient'
 
 export async function get(req, res, next) {
 	// the `slug` parameter is available because this file

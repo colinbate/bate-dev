@@ -1,4 +1,4 @@
-import client from '../../sanityClient'
+import client from '../../contentClient'
 
 export async function get(_, res, next) {
 	const content = await client.fetch('*[_type == "post" && defined(slug.current) && publishedAt < now()]|order(publishedAt desc)').then(posts => {

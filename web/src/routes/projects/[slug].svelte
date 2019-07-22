@@ -5,7 +5,7 @@
     const { slug } = params
     const res = await this.fetch(`/projects/${slug}_content`);
     const project = await res.json();
-    return project;
+    return {project};
 	}
 </script>
 
@@ -23,7 +23,9 @@
 		all elements inside .content
 	*/
 
-
+  .mainImage {
+    max-width: 100%;
+  }
 
 	.content :global(h2) {
 		font-size: 1.4em;
@@ -78,11 +80,11 @@
 <svelte:head>
 	<title>{project.title}</title>
 </svelte:head>
-
-<h1>{project.title}</h1>
+<img class="mainImage" src={project.mainImage} alt="mainImage">
+<h1>{project.title} ({project.projectYear})</h1>
 <a href={project.projectUrl}>{project.projectUrl}</a>
-{#if project.body}
+{#if project.intro}
 <div class='content'>
-	{@html project.body}
+	{@html project.intro}
 </div>
 {/if}

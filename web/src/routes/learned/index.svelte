@@ -1,5 +1,4 @@
 <script context="module">
-  import client from '../../sanityClient'
 	export async function preload({ params, query }) {
     const res = await this.fetch(`/learned/index_content`);
     const posts = await res.json();

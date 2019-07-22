@@ -1,18 +1,13 @@
 <script context="module">
-  import client from '../../sanityClient'
 	export async function preload({ params, query }) {
     const res = await this.fetch(`/projects/index_content`);
     const projects = await res.json();
-    return projects;
+    return {projects};
 	}
 </script>
 
 <script>
   export let projects;
-
-  function formatDate(date) {
-    return (new Date(date)).getUTCFullYear();
-  }
 </script>
 
 <style>
@@ -34,6 +29,6 @@
 				tell Sapper to load the data for the page as soon as
 				the user hovers over the link or taps it, instead of
 				waiting for the 'click' event -->
-		<li><a rel='prefetch' href='projects/{project.slug.current}'>{project.title}</a> ({formatDate(project.publishedAt)})</li>
+		<li><a rel='prefetch' href='projects/{project.slug}'>{project.title}</a> ({project.projectYear})</li>
 	{/each}
 </ul>
