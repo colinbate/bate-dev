@@ -25,6 +25,7 @@
 
   .mainImage {
     max-width: 100%;
+    box-shadow: 0 3px 6px hsla(0, 0%, 0%, 0.2), 0 10px 20px hsla(0, 0%, 0%, 0.15);
   }
 
 	.content :global(h2) {
@@ -32,9 +33,7 @@
 		font-weight: 500;
 	}
 
-	.content :global(pre) {
-		background-color: #f9f9f9;
-		box-shadow: inset 1px 1px 5px rgba(0,0,0,0.05);
+	/* .content :global(pre) {
 		padding: 0.5em;
 		border-radius: 2px;
 		overflow-x: auto;
@@ -45,18 +44,7 @@
 
 		background-color: transparent;
 		padding: 0;
-	}
-
-  .content :global(pre::after) {
-    content: attr(data-language);
-    top: 0;
-    position: absolute;
-    right: 0;
-    background: #ff3e00;
-    color: #fff;
-    padding: 2px;
-    border-radius: 2px;
-  }
+	} */
 
   .content :global(img) {
     display: block;
@@ -80,11 +68,13 @@
 <svelte:head>
 	<title>{project.title}</title>
 </svelte:head>
-<img class="mainImage" src={project.mainImage} alt="mainImage">
 <h1>{project.title} ({project.projectYear})</h1>
 <a href={project.projectUrl}>{project.projectUrl}</a>
 {#if project.intro}
 <div class='content'>
 	{@html project.intro}
 </div>
+{/if}
+{#if project.mainImage}
+<img class="mainImage" src={project.mainImage} alt="mainImage">
 {/if}

@@ -4,13 +4,13 @@
     // this file is called [slug].html
     const { slug } = params
     const res = await this.fetch(`/learned/${slug}_content`);
-    const post = await res.json();
-    return post;
+    const learning = await res.json();
+    return {learning};
 	}
 </script>
 
 <script>
-	export let post;
+	export let learning;
 </script>
 
 <style>
@@ -29,32 +29,6 @@
 		font-size: 1.4em;
 		font-weight: 500;
 	}
-
-	.content :global(pre) {
-		background-color: #f9f9f9;
-		box-shadow: inset 1px 1px 5px rgba(0,0,0,0.05);
-		padding: 0.5em;
-		border-radius: 2px;
-		overflow-x: auto;
-    position: relative;
-	}
-
-	.content :global(pre) :global(code) {
-
-		background-color: transparent;
-		padding: 0;
-	}
-
-  .content :global(pre::after) {
-    content: attr(data-language);
-    top: 0;
-    position: absolute;
-    right: 0;
-    background: #ff3e00;
-    color: #fff;
-    padding: 2px;
-    border-radius: 2px;
-  }
 
   .content :global(img) {
     display: block;
@@ -76,11 +50,15 @@
 </style>
 
 <svelte:head>
-	<title>{post.title}</title>
+	<title>{learning.title}</title>
 </svelte:head>
 
-<h1>{post.title}</h1>
-
+<h1>{learning.title}</h1>
+{#if learning.body}
 <div class='content'>
-	{@html post.body}
+	{@html learning.body}
 </div>
+{/if}
+{#if learning.mainImage}
+<img class="mainImage" src={learning.mainImage} alt="mainImage">
+{/if}

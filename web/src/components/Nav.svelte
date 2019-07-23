@@ -12,9 +12,7 @@
     padding: 0;
     display: flex;
     align-items: center;
-    flex-direction: column;
-    float: left;
-    background-color: hsla(0, 100%, 100%, 0.1);
+    justify-content: center;
 	}
 
 	li {
@@ -34,9 +32,8 @@
 		background-color: hsl(13, 100%, 52%);
     display: block;
     border-radius: 20rem;
-    right: -0.75rem;
-    top: 50%;
-    margin-top: -0.5rem;
+    left: 50%;
+    margin-left: -0.25rem;
 	}
 
 	a {
@@ -46,6 +43,20 @@
   }
   img {
     width: 2rem;
+  }
+
+  @media (min-width: 800px) {
+    ul {
+      flex-direction: column;
+      float: left;
+    }
+
+    .selected::after {
+      right: -0.75rem;
+      top: 50%;
+      margin-top: -0.5rem;
+      left: auto;
+    }
   }
 </style>
 
